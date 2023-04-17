@@ -57,9 +57,9 @@ total_params = sum(p.numel() for p in model.parameters() if p.requires_grad)
 print("[INFO] Total Number of Trainable Parameters : {}".format(total_params))
 
 # Test your Model 
-train_metric = test_model(model, data=train_dataset, scaler=scaler, date_time=date_time, ticks=500, info="Training Data")
-val_metric = test_model(model, data=val_dataset, scaler=scaler, date_time=date_time, ticks=100, info="Validation Data")
-test_metric = test_model(model, data=test_dataset, scaler=scaler, date_time=date_time, ticks=100, info="Test Data")
+train_metric = test_model(model, data=train_dataset, scaler=scaler, date_time=date_time, ticks=48, info="Training Data")
+val_metric = test_model(model, data=val_dataset, scaler=scaler, date_time=date_time, ticks=48, info="Validation Data")
+test_metric = test_model(model, data=test_dataset, scaler=scaler, date_time=date_time, ticks=48, info="Test Data")
 
 # Save evaluation metrics
 print("\nEvaluation Metrics \n")

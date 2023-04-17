@@ -96,14 +96,10 @@ def test_model(model, data, scaler, date_time,  ticks, info='Test Dataset'):
     for i in range(OUTPUT_SIZE):
         predictions = predictions_all[:,:,i]
         target = targets[:,:,i]
+        print(target.shape)
         
-        print(predictions.shape, inputs.shape[1])
-        predictions = predictions.reshape(predictions.shape[0]*predictions.shape[1], predictions.shape[2])
-        target = target.reshape(target.shape[0]*target.shape[1], target.shape[2])
         prediction_copies = np.repeat(predictions, inputs.shape[1], axis=-1)
-        print(prediction_copies.shape)
         predictions = scaler.inverse_transform(prediction_copies)[:,1]
-        print(predictions.shape)
         target_copies = np.repeat(target, inputs.shape[1], axis=-1)
         actual_target = scaler.inverse_transform(target_copies)[:,1]
         

@@ -97,14 +97,19 @@ def test_model(model, data, scaler, date_time,  ticks, info='Test Dataset'):
         predictions = predictions_all[:,:,i]
         target = targets[:,:,i]
         
-        
-        prediction_copies = np.repeat(predictions, inputs.shape[1], axis=-1)
-        predictions = scaler.inverse_transform(prediction_copies)[:,1]
-        target_copies = np.repeat(target, inputs.shape[1], axis=-1)
+        if TYPE == 'Univariate':
+            prediction_copies = np.repeat(predictions, inputs.shape[1], axis=-1)
+            target_copies = np.repeat(target, inputs.shape[1], axis=-1)
+        else:
+            prediction_copies = np.repeat(predictions, inputs.shape[2], axis=-1)
+            target_copies = np.repeat(target, inputs.shape[2], axis=-1)
+        predictions = scaler.inverse_transform(prediction_copies)[:,1]        
         actual_target = scaler.inverse_transform(target_copies)[:,1]
-        
+        print("P:", predictions)
+        print("A:", actual_target)
         caption = f"Predictions on {info} "
         file_name = f"of {NAME}.png"
+        plt.style.use("ggplot")
         plt.plot(actual_dates[::ticks], actual_target[::ticks], label=f'Actual {OUTPUT_COLS[i]}')
         plt.plot(actual_dates[::ticks], predictions[::ticks], label=f'Predicted {OUTPUT_COLS[i]}')
         plt.title(f'{caption} | {NAME}', fontsize=10)

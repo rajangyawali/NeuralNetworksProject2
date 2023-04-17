@@ -48,7 +48,7 @@ def create_temperature_data_for_lstm(data, t_past, t_future):
 # Use this function if you need to output multiple values
 def create_multivariate_data_for_lstm(data, t_past, t_future):
     X, Y = [], []
-    cols_index = [m for m in range(OUTPUT_SIZE)] # index of output columns
+    cols_index = [0, 2] # index of output columns
     for i in range(t_past, len(data) - t_future + 1):
         X.append(data[i - t_past : i, 0 : data.shape[1]])
         Y.append(data[i + t_future - 1 : i + t_future, cols_index])
@@ -90,6 +90,7 @@ def load_temperature_dataset(time_steps):
     # Let's do some normalization
     scaler = StandardScaler()
     normalized_data = scaler.fit_transform(df_univariate)
+    print("Normalized Data Shape:", normalized_data.shape)
     # np.savetxt('normalized_univariate.csv', normalized_data)
     
     # Let's create data ready to be used by LSTM
@@ -114,6 +115,7 @@ def load_multivariate_dataset(time_steps):
     # Let's do some normalization
     scaler = StandardScaler()
     normalized_data = scaler.fit_transform(df_multivariate)
+    print("Normalized Data Shape:", normalized_data.shape)
     # np.savetxt('normalized_multivariate.csv', normalized_data)
     
     # Let's create data ready to be used by LSTM

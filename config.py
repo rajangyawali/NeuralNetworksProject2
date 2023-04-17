@@ -8,11 +8,11 @@ BASE_OUTPUT = "output"
 
 
 
-BATCH_SIZE = 256
+BATCH_SIZE = 2048
 NUM_WORKERS = 2
 
 
-NUM_EPOCHS = 1
+NUM_EPOCHS = 15
 LEARNING_RATE = 0.001
 LOSS = "MSE"
 OPTIMIZER = "Adam"
@@ -26,7 +26,7 @@ elif TYPE == "Multivariate":
 
 HIDDEN_SIZE = 10
 NUM_LAYERS = 2
-TIME_STEPS = 24 
+TIME_STEPS = 24 * 365
 
 OUTPUT_COLS = ['T (degC)']
 # OUTPUT_COLS = ['T (degC)', 'p (mbar)']
