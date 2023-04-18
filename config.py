@@ -16,7 +16,7 @@ NUM_EPOCHS = 15
 LEARNING_RATE = 0.001
 LOSS = "MSE"
 OPTIMIZER = "Adam"
-TYPE = "Univariate"
+TYPE = "Multivariate"
 
 if TYPE == "Univariate":
     INPUT_SIZE = 1
@@ -26,10 +26,10 @@ elif TYPE == "Multivariate":
 
 HIDDEN_SIZE = 10
 NUM_LAYERS = 2
-TIME_STEPS = 24 * 365
+TIME_STEPS = 24 * 7
 
-OUTPUT_COLS = ['T (degC)']
-# OUTPUT_COLS = ['T (degC)', 'p (mbar)']
+# OUTPUT_COLS = ['T (degC)']
+OUTPUT_COLS = ['T (degC)', 'p (mbar)']
 OUTPUT_SIZE = len(OUTPUT_COLS)
 
 

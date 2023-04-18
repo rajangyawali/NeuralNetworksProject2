@@ -30,6 +30,7 @@ def read_data():
     
     # Converting string datetime to pandas datetime
     df['Date Time'] = pd.to_datetime(df['Date Time'], format='%d.%m.%Y %H:%M:%S')
+   
     
     # Setting index to Date Time
     df.index = df['Date Time']
@@ -85,7 +86,7 @@ def load_temperature_dataset(time_steps):
     
     # Creating a custom dataset with Date Time and Temperature Only
     df_univariate = df.loc[:, ['T (degC)']]
-    df_univariate.to_csv('temperature_prediction_univariate_data.csv')
+    # df_univariate.to_csv('temperature_prediction_univariate_data.csv')
     
     # Let's do some normalization
     scaler = StandardScaler()
@@ -110,7 +111,7 @@ def load_multivariate_dataset(time_steps):
     # Creating a custom dataset with Date Time, Pressure, Temperature, Dew Point Temperature 
     # and Relative  Humidity Only
     df_multivariate = df.loc[:, ['T (degC)', 'Tdew (degC)', 'p (mbar)',	'rh (%)']]
-    df_multivariate.to_csv('temperature_prediction_multivariate_data.csv')
+    # df_multivariate.to_csv('temperature_prediction_multivariate_data.csv')
     
     # Let's do some normalization
     scaler = StandardScaler()

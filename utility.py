@@ -103,10 +103,15 @@ def test_model(model, data, scaler, date_time,  ticks, info='Test Dataset'):
         else:
             prediction_copies = np.repeat(predictions, inputs.shape[2], axis=-1)
             target_copies = np.repeat(target, inputs.shape[2], axis=-1)
-        predictions = scaler.inverse_transform(prediction_copies)[:,1]        
-        actual_target = scaler.inverse_transform(target_copies)[:,1]
-        print("P:", predictions)
-        print("A:", actual_target)
+            
+        if i == 0: 
+            k = 0    # index for temperature
+        else:
+            k = 2    # index for pressure
+        
+        predictions = scaler.inverse_transform(prediction_copies)[:,k]        
+        actual_target = scaler.inverse_transform(target_copies)[:,k]
+
         caption = f"Predictions on {info} "
         file_name = f"of {NAME}.png"
         plt.style.use("ggplot")
