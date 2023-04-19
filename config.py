@@ -8,7 +8,7 @@ BASE_OUTPUT = "output"
 
 
 
-BATCH_SIZE = 2048
+BATCH_SIZE = 128
 NUM_WORKERS = 2
 
 
