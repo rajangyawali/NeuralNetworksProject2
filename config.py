@@ -28,8 +28,8 @@ HIDDEN_SIZE = 10
 NUM_LAYERS = 2
 TIME_STEPS = 24 * 7
 
-# OUTPUT_COLS = ['T (degC)']
-OUTPUT_COLS = ['T (degC)', 'p (mbar)']
+OUTPUT_COLS = ['T (degC)']
+# OUTPUT_COLS = ['T (degC)', 'p (mbar)']
 OUTPUT_SIZE = len(OUTPUT_COLS)
 
 
