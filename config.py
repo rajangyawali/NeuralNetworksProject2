@@ -16,7 +16,7 @@ NUM_EPOCHS = 15
 LEARNING_RATE = 0.001
 LOSS = "MSE"
 OPTIMIZER = "Adam"
-TYPE = "Multivariate"
+TYPE = "Univariate"
 
 if TYPE == "Univariate":
     INPUT_SIZE = 1
