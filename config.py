@@ -26,11 +26,11 @@ elif TYPE == "Multivariate":
 
 HIDDEN_SIZE = 10
 NUM_LAYERS = 2
-TIME_STEPS = 24 * 3
+TIME_STEPS = 24 * 7
 
 OUTPUT_COLS = ['T (degC)']
 # OUTPUT_COLS = ['T (degC)', 'p (mbar)']
 OUTPUT_SIZE = len(OUTPUT_COLS)
 
 
-NAME = f"{TYPE} LSTM with {LOSS}, {OPTIMIZER}, {NUM_EPOCHS} epochs, {TIME_STEPS} time steps, {LEARNING_RATE} LR, {INPUT_SIZE} ip, {OUTPUT_SIZE} op"
+NAME = f"{TYPE} LSTM with {LOSS}, {OPTIMIZER}, {NUM_EPOCHS} epochs, {TIME_STEPS} time steps, {NUM_LAYERS} num layers, {LEARNING_RATE} LR, {INPUT_SIZE} ip, {OUTPUT_SIZE} op"
