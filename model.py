@@ -20,9 +20,9 @@ class LSTM(nn.Module):
         self.num_layers = num_layers
         self.output_size = output_size
         
-        self.lstm = nn.LSTM(self.input_size, self.hidden_size, self.num_layers, batch_first=True)
+        self.lstm = nn.LSTM(self.input_size, self.hidden_size, self.num_layers, batch_first=True).to(DEVICE)
         
-        self.fc = nn.Linear(self.hidden_size, self.output_size)
+        self.fc = nn.Linear(self.hidden_size, self.output_size).to(DEVICE)
 
     def forward(self, x):
         batch_size = x.size(0)

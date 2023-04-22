@@ -26,7 +26,7 @@ elif TYPE == "Multivariate":
 
 HIDDEN_SIZE = 10
 NUM_LAYERS = 2
-TIME_STEPS = 24 * 7
+TIME_STEPS = 24 * 30
 
 OUTPUT_COLS = ['T (degC)']
 # OUTPUT_COLS = ['T (degC)', 'p (mbar)']
